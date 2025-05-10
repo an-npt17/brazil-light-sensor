@@ -1,6 +1,7 @@
 import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
+import plotly
 import plotly.express as px
 from sklearn.linear_model import LinearRegression
 
@@ -30,7 +31,6 @@ def rank_with_moving_average(series, is_daytime_func=None, window_size=5):
     moving_avgs = []
     for i in range(len(values)):
         if i < window_size:
-            # Not enough data for window, use available data
             window = values[: i + 1]
         else:
             window = values[i - window_size + 1 : i + 1]
@@ -144,5 +144,6 @@ if __name__ == "__main__":
     df = convert_to_range(df)
 
     fig = px.line(df, x="created_at", y="rank", title="Rank over Time")
-    fig.update_layout(xaxis_title="Created At", yaxis_title="Value")
+    fig.update_layout(xaxis_title="Captured At", yaxis_title="Rank")
+    plotly.offline.plot(fig, filename="rank_over_time.html", auto_open=True)
     fig.show()

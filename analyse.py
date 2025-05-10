@@ -1,4 +1,5 @@
 import pandas as pd
+import plotly
 import plotly.express as px
 import polars as pl
 from matplotlib import pyplot as plt
@@ -19,8 +20,8 @@ def analyse_data(df: pd.DataFrame) -> None:
     plt.ylabel("Value")
     plt.savefig("plot.png")
     fig = px.line(df, x="created_at", y="field1", title="Sensor over Time")
-    fig.update_layout(xaxis_title="Created At", yaxis_title="Value")
-    fig.show()
+    fig.update_layout(xaxis_title="Captured At", yaxis_title="Value")
+    plotly.offline.plot(fig, filename="light-sensor.html", auto_open=True)
 
 
 if __name__ == "__main__":
