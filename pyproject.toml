@@ -1,0 +1,15 @@
+[project]
+name = "brazil-light-sensor"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+    "matplotlib>=3.10.3",
+    "pandas>=2.2.3",
+    "plotly>=6.0.1",
+    "polars>=1.29.0",
+    "python-dotenv>=1.1.0",
+    "requests>=2.32.3",
+    "seaborn>=0.13.2",
+]
