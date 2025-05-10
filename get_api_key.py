@@ -15,6 +15,7 @@ def get_api_key():
     """
     api_key = os.getenv("API_KEY")
     channel_id = os.getenv("CHANNEL_ID")
+    print(f"API_KEY: {api_key}")
     if api_key is None or channel_id is None:
         raise ValueError(
             "API_KEY and CHANNEL_ID must be set in the environment variables."

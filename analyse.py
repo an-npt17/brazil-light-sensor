@@ -8,6 +8,7 @@ def analyse_data(df: pd.DataFrame) -> None:
     df["created_at"] = pd.to_datetime(df["created_at"], format="%Y-%m-%d %H:%M:%S %Z")
     df["created_at"] = df["created_at"].dt.tz_convert("Asia/Ho_Chi_Minh")
     print(df.head())
+    df.to_csv("data_processed.csv", index=False)
     plt.figure(figsize=(30, 10))
     plt.plot(
         df["created_at"],
